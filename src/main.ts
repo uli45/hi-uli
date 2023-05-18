@@ -7,14 +7,22 @@ import router from './router'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 // 导入全局样式
-import './styles/main.less'
+import '@/assets/styles/main.less'
 //CSS 重置
 import 'normalize.css'
 //自定义全局样式
 import '@/assets/styles/common.less'
 const app = createApp(App)
 
+//引入批量注册的组件
+import baseComponents from '@/components/index'
+//element 图标
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+app.use(baseComponents)
 app.use(createPinia())
 app.use(router)
-app.use(ElementPlus)
+app.use(ElementPlus, { size: 'small' })
 app.mount('#app')
