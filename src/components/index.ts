@@ -1,18 +1,33 @@
 import type { App } from 'vue'
+import { compStore } from '@/stores/comp'
 import imgChangeBackground from './imgChangeBackground.vue'
-const components = [{ title: 'imgChangeBackground', componentName: imgChangeBackground }]
-const keys: Array<{ title: string; name: string }> = []
+import myLove from './myLove.vue'
+
+const components = [
+  {
+    title: 'imgChangeBackground',
+    componentName: imgChangeBackground,
+    desc: '这是一个根据图片主体颜色改变背景颜色的demo组件'
+  },
+  {
+    title: 'myLove',
+    componentName: myLove,
+    desc: '愿许秋风离别意，散我心中意难平。'
+  }
+]
 export default {
   install(app: App) {
+    const store = compStore()
+    store.clearKeys()
     components.forEach((item) => {
-      keys.push({
+      store.setKey({
         title: item.title,
-        name: item.componentName.__name as string
+        componentName: item.componentName.__name as string,
+        desc: item.desc
       })
-      // 通过循环遍历数据批量注册组件
 
+      // 通过循环遍历数据批量注册组件
       app.component(item.componentName.__name as string, item.componentName)
     })
-    window.localStorage.setItem('keys', JSON.stringify(keys))
   }
 }

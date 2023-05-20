@@ -1,7 +1,8 @@
 <script lang="ts" setup name="Layout">
 import { ref, shallowRef } from 'vue'
+import { compStore } from '@/stores'
 import { DICT } from '@/data-dict'
-
+import { ElNotification } from 'element-plus'
 // 图标大小
 const iconSize = ref(14)
 //图标颜色
@@ -12,10 +13,21 @@ const show = ref(false)
 const toLink = (link: string) => {
   window.open(link, '_blank')
 }
+const toChatGPT = () => {
+  ElNotification({
+    title: '正在跳转...',
+    message: '访问密码：0617',
+    type: 'success',
+    duration: 1500
+  })
+  setTimeout(() => {
+    window.open('https://hi-uli.fun', '_blank')
+  }, 1500)
+}
 //组件名称
-let nameList = window.localStorage.getItem('keys')
-let compName = nameList ? JSON.parse(nameList) : []
-let currentComp = shallowRef(compName[0].name)
+const store = compStore()
+
+const currentComp = store.keys[0].componentName
 </script>
 <template>
   <div class="common-layout">
@@ -42,6 +54,7 @@ let currentComp = shallowRef(compName[0].name)
             </transition>
           </div>
           <div class="item">css-demo</div>
+          <div class="item" @click="toChatGPT">在线chatGPT网站</div>
         </div>
       </el-header>
       <el-container>

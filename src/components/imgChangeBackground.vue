@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import ColorThief from 'colorthief'
-import analyze from 'rgbaster'
 import type { imgs, img } from '@/types/compInfo'
 const colorThief = new ColorThief()
 
@@ -49,9 +48,6 @@ const handleMouseLeave = () => {
             crossorigin="anonymous"
             @mouseenter="handleMouseHover($event.target, index)"
             @mouseleave="handleMouseLeave()"
-            :style="{
-              opacity: hoverIndex === -1 ? 1 : index === hoverIndex ? 1 : 0.2
-            }"
           />
         </div>
       </el-col>
@@ -67,13 +63,11 @@ const handleMouseLeave = () => {
     var(--changeBackground2),
     var(--changeBackground3)
   );
-  .mgTop {
-    margin-top: 20px;
-  }
+
   .imgBox {
     transition: transform 0.5s;
     height: 37vh;
-
+    margin-top: 20px;
     &:hover {
       transform: scale(1.05);
       transform-origin: center center;
