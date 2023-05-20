@@ -21,23 +21,28 @@ let currentComp = shallowRef(compName[0].name)
   <div class="common-layout">
     <el-container>
       <el-header class="my-header">
-        <div class="item" @mouseover="show = true" @mouseout="show = false">
-          文档
-          <el-icon class="icon" :size="iconSize" :color="iconColor">
-            <CaretBottom />
-          </el-icon>
-          <transition name="el-fade-in-linear">
-            <div class="select" v-show="show">
-              <template v-for="item in DICT.doc" :key="item.title">
-                <div class="title">{{ item.title }}</div>
-                <div class="options" v-for="i in item.data" :key="i.url" @click="toLink(i.url)">
-                  {{ i.name }} <el-icon><Link /></el-icon>
-                </div>
-              </template>
-            </div>
-          </transition>
+        <div class="left-header">
+          <h1>hi-uliの小窝</h1>
         </div>
-        <div class="item">css-demo</div>
+        <div class="right-header">
+          <div class="item" @mouseover="show = true" @mouseout="show = false">
+            文档
+            <el-icon class="icon" :size="iconSize" :color="iconColor">
+              <CaretBottom />
+            </el-icon>
+            <transition name="el-fade-in-linear">
+              <div class="select" v-show="show">
+                <template v-for="item in DICT.doc" :key="item.title">
+                  <div class="title">{{ item.title }}</div>
+                  <div class="options" v-for="i in item.data" :key="i.url" @click="toLink(i.url)">
+                    {{ i.name }} <el-icon><Link /></el-icon>
+                  </div>
+                </template>
+              </div>
+            </transition>
+          </div>
+          <div class="item">css-demo</div>
+        </div>
       </el-header>
       <el-container>
         <el-aside width="300px">
@@ -61,47 +66,58 @@ let currentComp = shallowRef(compName[0].name)
   min-height: 100vh;
   background-color: #fff;
   .my-header {
-    text-align: right;
-    font-size: 14px;
+    display: flex;
     border-bottom: 1px solid #efebeb;
     line-height: 60px;
-    .item {
-      cursor: pointer;
-      display: inline-block;
-      margin-right: 20px;
-      text-align: center;
-      position: relative;
-      .select {
-        position: absolute;
-        top: 50px;
-        left: -50px;
-        border-radius: 2px;
-        border: 1px solid #efebeb;
-        background-color: #fff;
-        padding: 10px 20px;
-        text-align: left;
-        .title {
-          font-size: 14px;
-          font-weight: 600;
-          line-height: 2;
-          white-space: nowrap;
-        }
-        .options {
-          cursor: pointer;
-          line-height: 2;
-          white-space: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    .left-header {
+      h1 {
+        color: @xtxColor;
+      }
+    }
+    .right-header {
+      text-align: right;
+      font-size: 14px;
+      .item {
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 20px;
+        text-align: center;
+        position: relative;
+        .select {
+          position: absolute;
+          top: 50px;
+          left: -50px;
+          border-radius: 2px;
+          border: 1px solid #efebeb;
+          background-color: #fff;
+          padding: 10px 20px;
+          text-align: left;
+          z-index: 100;
+          .title {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 2;
+            white-space: nowrap;
+          }
+          .options {
+            cursor: pointer;
+            line-height: 2;
+            white-space: nowrap;
 
-          &:hover {
-            color: @hoverColor;
+            &:hover {
+              color: @hoverColor;
+            }
           }
         }
+        .icon {
+          vertical-align: -1px;
+        }
+        // &:hover {
+        //   color: @hoverColor;
+        // }
       }
-      .icon {
-        vertical-align: -1px;
-      }
-      // &:hover {
-      //   color: @hoverColor;
-      // }
     }
   }
   .scrollbar-demo-item {

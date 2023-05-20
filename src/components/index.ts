@@ -1,6 +1,6 @@
 import type { App } from 'vue'
-import Child1Vue from './Child1.vue'
-const components = [{ title: 'Child1', componentName: Child1Vue }]
+import imgChangeBackground from './imgChangeBackground.vue'
+const components = [{ title: 'imgChangeBackground', componentName: imgChangeBackground }]
 const keys: Array<{ title: string; name: string }> = []
 export default {
   install(app: App) {
