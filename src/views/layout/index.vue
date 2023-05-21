@@ -11,7 +11,7 @@ const iconColor = ref('#ccc')
 const show = ref(false)
 const activeIndex = ref(1)
 const myMouseover = (type: string, index: number) => {
-  if (type === 'AIboom' || type === 'select') {
+  if (type === 'select') {
     activeIndex.value = index
     show.value = true
   }
@@ -71,7 +71,7 @@ watch(
             @click="toLink(item.type, item?.url)"
             @mouseenter.self="myMouseover(item.type, index)"
             @mouseleave.self="show = false"
-            :class="{ active: index === 2 }"
+            :class="{ active: index === 3 }"
           >
             {{ item.category }}
             <span v-show="item.type === 'select' || item.type === 'AIboom'">

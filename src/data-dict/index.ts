@@ -4,7 +4,7 @@ const store = compStore()
 export const DICT = [
   {
     category: 'AI相关',
-    type: 'AIboom',
+    type: 'select',
     data: [
       {
         title: 'AI 资讯',
@@ -33,6 +33,52 @@ export const DICT = [
             name: 'chatGPT 最强竞品=>Claude食用教程',
             type: 'link',
             url: 'https://zhuanlan.zhihu.com/p/622363620'
+          },
+          {
+            name: 'AI 生成PPT',
+            type: 'link',
+            url: 'https://design.meitu.com/ppt/'
+          },
+          {
+            name: 'AI 生成LOGO',
+            type: 'link',
+            url: 'https://www.logosc.cn/'
+          },
+          {
+            name: '腾讯AI 数字人 007打工仔',
+            type: 'link',
+            url: 'https://zenvideo.qq.com/'
+          },
+          {
+            name: 'AI 生成营销文案',
+            type: 'link',
+            url: 'https://copyai.cn/'
+          },
+          {
+            name: 'AI 一键抠图',
+            type: 'link',
+            url: 'https://magicstudio.com/zh/magiceraser'
+          },
+          {
+            name: 'AI 去除背景',
+            type: 'link',
+            url: 'https://www.remove.bg/zh'
+          },
+          {
+            name: 'AI 文生图优秀案例',
+            type: 'link',
+            url: 'https://playgroundai.com'
+          },
+
+          {
+            name: '创建AI 应用',
+            type: 'link',
+            url: 'http://www.chatbox.cool/'
+          },
+          {
+            name: 'AI 艺术馆',
+            type: 'link',
+            url: 'https://arthub.ai/'
           }
         ]
       },
@@ -119,6 +165,32 @@ export const DICT = [
             name: 'NodeJS',
             type: 'link',
             url: 'https://nodejs.org/en/docs/'
+          }
+        ]
+      }
+    ]
+  },
+  {
+    category: '日常开发相关',
+    type: 'select',
+    data: [
+      {
+        title: '常见问题解决方案',
+        list: [
+          {
+            name: '一文教你实现PDF 预览和下载',
+            type: 'link',
+            url: 'https://mp.weixin.qq.com/s/vQYWEmcBbCvGTe8Gcsfc1Q'
+          },
+          {
+            name: '可视化大屏：autofit.js 一行搞定自适应',
+            type: 'link',
+            url: 'https://mp.weixin.qq.com/s/qWIeDH-QVBqPe91sz5WRWg'
+          },
+          {
+            name: '提升代码可读性，减少 if-else 的几个小技巧',
+            type: 'link',
+            url: 'https://mp.weixin.qq.com/s/zpmXYZ-eoUz1A4Glm72rlA'
           }
         ]
       }
