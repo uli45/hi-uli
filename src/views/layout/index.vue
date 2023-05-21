@@ -1,5 +1,5 @@
 <script lang="ts" setup name="Layout">
-import { ref, shallowRef } from 'vue'
+import { ref, shallowRef, watch } from 'vue'
 import { compStore } from '@/stores'
 import { DICT } from '@/data-dict'
 import { ElNotification } from 'element-plus'
@@ -9,60 +9,107 @@ const iconSize = ref(14)
 const iconColor = ref('#ccc')
 //鼠标移入移除
 const show = ref(false)
-//跳转外链
-const toLink = (link: string) => {
-  window.open(link, '_blank')
+const activeIndex = ref(1)
+const myMouseover = (type: string, index: number) => {
+  if (type === 'AIboom' || type === 'select') {
+    activeIndex.value = index
+    show.value = true
+  }
 }
-const toChatGPT = () => {
-  ElNotification({
-    title: '正在跳转...',
-    message: '访问密码：0617',
-    type: 'success',
-    duration: 1500
-  })
-  setTimeout(() => {
-    window.open('https://hi-uli.fun', '_blank')
-  }, 1500)
+//跳转外链
+const toLink = (type: string, link: string | undefined) => {
+  if (type === 'link') {
+    show.value = false
+    window.open(link, '_blank')
+  } else if (type === 'GPT') {
+    ElNotification({
+      title: '正在跳转...',
+      message: '访问密码：0617',
+      type: 'success',
+      duration: 1500
+    })
+    setTimeout(() => {
+      window.open(link, '_blank')
+    }, 1500)
+  }
 }
 //组件名称
 const store = compStore()
+let currentComp = shallowRef('')
+const changeComp = (name: string) => {
+  store.changeActiveKey(name)
+}
+watch(
+  () => store.activeKey,
+  (activeKey) => {
+    if (activeKey) {
+      currentComp.value = store.activeKey
+    } else {
+      currentComp.value = store.keys[0].componentName
+      changeComp(currentComp.value)
+    }
+  },
+  {
+    immediate: true
+  }
+)
 
-const currentComp = store.keys[0].componentName
+// 切换组件
 </script>
 <template>
   <div class="common-layout">
     <el-container>
       <el-header class="my-header">
         <div class="left-header">
-          <h1>hi-uliの小窝</h1>
+          <h1>uliの小窝</h1>
         </div>
         <div class="right-header">
-          <div class="item" @mouseover="show = true" @mouseout="show = false">
-            文档
-            <el-icon class="icon" :size="iconSize" :color="iconColor">
-              <CaretBottom />
-            </el-icon>
-            <transition name="el-fade-in-linear">
-              <div class="select" v-show="show">
-                <template v-for="item in DICT.doc" :key="item.title">
-                  <div class="title">{{ item.title }}</div>
-                  <div class="options" v-for="i in item.data" :key="i.url" @click="toLink(i.url)">
-                    {{ i.name }} <el-icon><Link /></el-icon>
-                  </div>
-                </template>
-              </div>
-            </transition>
+          <div
+            class="item"
+            v-for="(item, index) in DICT"
+            :key="item.category"
+            @click="toLink(item.type, item?.url)"
+            @mouseenter.self="myMouseover(item.type, index)"
+            @mouseleave.self="show = false"
+            :class="{ active: index === 2 }"
+          >
+            {{ item.category }}
+            <span v-show="item.type === 'select' || item.type === 'AIboom'">
+              <el-icon class="icon" :size="iconSize" :color="iconColor">
+                <CaretBottom />
+              </el-icon>
+              <transition name="el-fade-in-linear">
+                <div class="select" v-show="show && index === activeIndex">
+                  <template v-for="i in item.data" :key="i.title">
+                    <div class="title">{{ i.title }}</div>
+                    <div
+                      class="options ellipsis"
+                      v-for="v in i.list"
+                      :key="v.url"
+                      @click.self="toLink(v.type, v.url)"
+                    >
+                      {{ v.name }} <el-icon><Link /></el-icon>
+                    </div>
+                  </template>
+                </div>
+              </transition>
+            </span>
           </div>
-          <div class="item">css-demo</div>
-          <div class="item" @click="toChatGPT">在线chatGPT网站</div>
         </div>
       </el-header>
       <el-container>
         <el-aside width="300px">
           <el-scrollbar max-height="90vh">
-            <p v-for="item in 20" :key="item" class="scrollbar-demo-item">
-              {{ item }}
-            </p>
+            <div
+              v-for="item in store.keys"
+              :key="item.title"
+              class="hoverShadow scrollbar-demo-item pointer"
+              :class="{ active: currentComp === item.componentName }"
+              @click="changeComp(item.componentName)"
+            >
+              <!-- <p>{{ item.title }}</p> -->
+              <p>{{ item.desc }}</p>
+            </div>
           </el-scrollbar>
         </el-aside>
         <el-main>
@@ -102,22 +149,26 @@ const currentComp = store.keys[0].componentName
           position: absolute;
           top: 50px;
           left: -50px;
+          max-width: 300px;
           border-radius: 2px;
           border: 1px solid #efebeb;
           background-color: #fff;
           padding: 10px 20px;
           text-align: left;
-          z-index: 100;
+          z-index: 1000;
+          color: #000;
           .title {
             font-size: 14px;
             font-weight: 600;
             line-height: 2;
             white-space: nowrap;
+            cursor: default;
           }
           .options {
             cursor: pointer;
             line-height: 2;
             white-space: nowrap;
+            text-indent: 1em;
 
             &:hover {
               color: @hoverColor;
@@ -134,12 +185,13 @@ const currentComp = store.keys[0].componentName
     }
   }
   .scrollbar-demo-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // height: 50px;
     margin: 10px;
-    text-align: center;
+    // text-align: center;
+    padding: 10px;
     border-radius: 4px;
     background: var(--el-color-primary-light-9);
     color: var(--el-color-primary);

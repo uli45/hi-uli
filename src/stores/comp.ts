@@ -6,9 +6,8 @@ import type { compInfo } from '@/types/compInfo'
 export const compStore = defineStore(
   'compStore',
   () => {
-    // 用户信息
-
     const keys = ref<compInfo[]>([])
+    const activeKey = ref('')
     // 设置
     const setKey = (keyList: compInfo) => {
       keys!.value.push(keyList)
@@ -17,8 +16,10 @@ export const compStore = defineStore(
     const clearKeys = () => {
       keys.value = []
     }
-
-    return { setKey, keys, clearKeys }
+    const changeActiveKey = (key: string) => {
+      activeKey.value = key
+    }
+    return { setKey, keys, clearKeys, activeKey, changeActiveKey }
   },
   {
     persist: true

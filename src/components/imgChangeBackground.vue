@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import ColorThief from 'colorthief'
+import { ElMessage } from 'element-plus'
 import type { imgs, img } from '@/types/compInfo'
 const colorThief = new ColorThief()
 
@@ -14,12 +15,19 @@ for (let i = 1; i <= 4; i++) {
 const hoverIndex = ref(-1)
 const html = document.documentElement
 const handleMouseHover = async (img: any, index: number) => {
-  hoverIndex.value = index
-  const colors = await colorThief.getPalette(img, 3)
-  const [c1, c2, c3] = colors.map((c: [number, number, number]) => `rgb(${c[0]},${c[1]},${c[2]})`)
-  html.style.setProperty('--changeBackground1', c1)
-  html.style.setProperty('--changeBackground2', c2)
-  html.style.setProperty('--changeBackground3', c3)
+  try {
+    hoverIndex.value = index
+    const colors = await colorThief.getPalette(img, 3)
+    const [c1, c2, c3] = colors.map((c: [number, number, number]) => `rgb(${c[0]},${c[1]},${c[2]})`)
+    html.style.setProperty('--changeBackground1', c1)
+    html.style.setProperty('--changeBackground2', c2)
+    html.style.setProperty('--changeBackground3', c3)
+  } catch (error) {
+    ElMessage({
+      message: '图片加载中！',
+      type: 'warning'
+    })
+  }
 }
 const handleMouseLeave = () => {
   hoverIndex.value = -1
@@ -46,8 +54,11 @@ const handleMouseLeave = () => {
           <img
             :src="item.src"
             crossorigin="anonymous"
-            @mouseenter="handleMouseHover($event.target, index)"
-            @mouseleave="handleMouseLeave()"
+            @mouseenter.self="handleMouseHover($event.target, index)"
+            @mouseleave.self="handleMouseLeave"
+            :style="{
+              opacity: hoverIndex === -1 ? 1 : index === hoverIndex ? 1 : 0.2
+            }"
           />
         </div>
       </el-col>
