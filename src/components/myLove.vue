@@ -49,7 +49,7 @@ input#open {
   justify-content: center;
   align-items: center;
   background-color: #f2acac;
-  height: calc(100vh - 100px);
+
   .card {
     position: relative;
     width: 300px;
