@@ -87,7 +87,7 @@ watch(
                         class="options ellipsis"
                         v-for="v in i.list"
                         :key="v.url"
-                        @click.self="toLink(v.type, v.url)"
+                        @click.stop="toLink(v.type, v.url)"
                       >
                         <el-tooltip :content="v.name" placement="left-start">
                           {{ v.name }}
@@ -129,7 +129,16 @@ watch(
 .common-layout {
   min-width: 100vw;
   min-height: 100vh;
-  background-color: #fff;
+  background: linear-gradient(
+    90deg,
+    #ffffff 1%,
+    #ead2ea 10.2%,
+    #e4d5ee 19.6%,
+    #d1def3 36.8%,
+    #b5dee5 62.2%,
+    #cfebf3 88.9%,
+    #ffffff 99%
+  ) !important;
   .my-header {
     display: flex;
     border-bottom: 1px solid #efebeb;
