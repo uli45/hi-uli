@@ -124,6 +124,56 @@ export const DICT = [
             name: '微信快速接入ChatGPT',
             type: 'link',
             url: 'https://cloud.tencent.com/developer/article/2235918?areaSource=103001.3&traceId=oJdSIJKS4emYcFFZDuFbT'
+          },
+          {
+            name: '胎教级音视频教程',
+            type: 'link',
+            url: 'https://zhuanlan.zhihu.com/p/630115251'
+          },
+          {
+            name: 'SD-prompt生成器+词典',
+            type: 'link',
+            url: 'https://moonvy.com/apps/ops/'
+          },
+          {
+            name: 'ai作品搜索引擎（灵感）',
+            type: 'link',
+            url: 'https://search.krea.ai/'
+          },
+          {
+            name: 'prompt搜索引擎',
+            type: 'link',
+            url: 'https://lexica.art/'
+          },
+          {
+            name: 'SD文生图搭建教程',
+            type: 'link',
+            url: 'https://zhuanlan.zhihu.com/p/617997179'
+          },
+          {
+            name: '国内midjouryery',
+            type: 'link',
+            url: 'https://rightbrain.art/'
+          },
+          {
+            name: 'AIGC魔导书',
+            type: 'link',
+            url: 'https://www.wujieai.com/tag-generator'
+          },
+          {
+            name: 'Midjourney教程：超详细Ai绘画新手入门攻略',
+            type: 'link',
+            url: 'https://zhuanlan.zhihu.com/p/611864651'
+          },
+          {
+            name: 'Midjourney 知识库-入坑-进阶-实战',
+            type: 'link',
+            url: 'https://tob-design.yuque.com/kxcufk/mj'
+          },
+          {
+            name: 'Stable Diffusion 知识库-入坑-进阶-实战',
+            type: 'link',
+            url: 'https://tob-design.yuque.com/kxcufk/sd'
           }
         ]
       }

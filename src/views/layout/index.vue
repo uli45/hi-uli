@@ -69,8 +69,8 @@ watch(
             v-for="(item, index) in DICT"
             :key="item.category"
             @click="toLink(item.type, item?.url)"
-            @mouseenter.self="myMouseover(item.type, index)"
-            @mouseleave.self="show = false"
+            @mouseenter="myMouseover(item.type, index)"
+            @mouseleave="show = false"
             :class="{ active: index === 3 }"
           >
             {{ item.category }}
@@ -80,17 +80,21 @@ watch(
               </el-icon>
               <transition name="el-fade-in-linear">
                 <div class="select" v-show="show && index === activeIndex">
-                  <template v-for="i in item.data" :key="i.title">
-                    <div class="title">{{ i.title }}</div>
-                    <div
-                      class="options ellipsis"
-                      v-for="v in i.list"
-                      :key="v.url"
-                      @click.self="toLink(v.type, v.url)"
-                    >
-                      {{ v.name }} <el-icon><Link /></el-icon>
-                    </div>
-                  </template>
+                  <el-scrollbar max-height="80vh">
+                    <template v-for="i in item.data" :key="i.title">
+                      <div class="title">{{ i.title }}</div>
+                      <div
+                        class="options ellipsis"
+                        v-for="v in i.list"
+                        :key="v.url"
+                        @click.self="toLink(v.type, v.url)"
+                      >
+                        <el-tooltip :content="v.name" placement="left-start">
+                          {{ v.name }} <el-icon><Link /></el-icon>
+                        </el-tooltip>
+                      </div>
+                    </template>
+                  </el-scrollbar>
                 </div>
               </transition>
             </span>
