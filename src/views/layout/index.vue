@@ -90,8 +90,9 @@ watch(
                         @click.self="toLink(v.type, v.url)"
                       >
                         <el-tooltip :content="v.name" placement="left-start">
-                          {{ v.name }} <el-icon><Link /></el-icon>
+                          {{ v.name }}
                         </el-tooltip>
+                        <el-icon><Link /></el-icon>
                       </div>
                     </template>
                   </el-scrollbar>
