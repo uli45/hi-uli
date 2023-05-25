@@ -4,6 +4,7 @@ import imgChangeBackground from './imgChangeBackground.vue'
 import myLove from './myLove.vue'
 import cssLoading from './cssLoading.vue'
 import transitionLine from './transitionComp/index.vue'
+import files from './files.vue'
 const components = [
   {
     title: 'imgChangeBackground',
@@ -19,6 +20,11 @@ const components = [
     title: 'cssLoading',
     componentName: cssLoading,
     desc: '一个非常好用的loading效果网站'
+  },
+  {
+    title: 'files',
+    componentName: files,
+    desc: '一个纯css实现的文件夹'
   },
   {
     title: 'transitionLine',
