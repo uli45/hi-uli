@@ -54,7 +54,7 @@ import {} from 'vue'
       top: 0;
       left: 0;
       z-index: -5;
-      background-color: #333;
+      background-color: @xtxColor;
       transition: all 0.4s ease-in-out;
     }
     &:hover {

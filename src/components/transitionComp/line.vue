@@ -9,7 +9,7 @@ import {} from 'vue'
 <style scoped lang="less">
 .line {
   position: relative;
-
+  padding-bottom: 6px;
   &::after {
     content: ' ';
     position: absolute;
@@ -18,8 +18,7 @@ import {} from 'vue'
     left: 50%;
     display: block;
     width: 100%;
-    height: 1px;
-
+    height: 2px;
     transform: translate(-50%);
     transition: all 0.5s;
     animation: del_width 0.5s ease forwards;
@@ -28,7 +27,7 @@ import {} from 'vue'
     &::after {
       height: 2px;
       animation: add_width 0.5s ease forwards;
-      background: red;
+      background: @xtxColor;
     }
   }
 }
