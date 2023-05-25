@@ -20,6 +20,12 @@ import {} from 'vue'
                     <summary>文件夹名称</summary>
                     <div class="folder">
                       <p>文件名称</p>
+                      <details open>
+                        <summary>文件夹名称</summary>
+                        <div class="folder">
+                          <img src="../assets/images/go.gif" width="150" alt="" />
+                        </div>
+                      </details>
                     </div>
                   </details>
                 </div>
