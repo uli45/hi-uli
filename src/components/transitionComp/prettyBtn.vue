@@ -10,7 +10,7 @@ import {} from 'vue'
   </div>
 </template>
 
-<style lang="less">
+<style scoped lang="less">
 .title {
   // background-color: pink;
   padding: 5px;
