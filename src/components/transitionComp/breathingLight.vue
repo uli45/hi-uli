@@ -3,7 +3,7 @@ import {} from 'vue'
 </script>
 
 <template>
-  <div class="my-demo">
+  <div class="breathingLight">
     <span class="red"></span>
     <span class="green"></span>
     <span class="blue"></span>
@@ -11,7 +11,7 @@ import {} from 'vue'
 </template>
 
 <style scoped>
-.my-demo {
+.breathingLight {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@ import {} from 'vue'
 span {
   width: 60px;
   height: 60px;
-  margin: 40px;
+  margin: 20px;
   border-radius: 50%;
 }
 .red {

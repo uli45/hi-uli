@@ -42,7 +42,7 @@ export const DICT = [
           {
             name: 'AI 生成LOGO',
             type: 'link',
-            url: 'https://www.logosc.cn/'
+            url: 'https://www.logosc.cn/?coupon=hi-uli'
           },
           {
             name: '腾讯AI 数字人 007打工仔',
