@@ -21,6 +21,15 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
+##  Project clone
+
+```sh
+ git clone https://github.com/uli45/hi-uli.git
+ 
+ // or
+
+ git clone https://gitee.com/uli1/hi-uli.git
+```
 ## Project Setup
 
 ```sh

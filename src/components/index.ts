@@ -5,6 +5,7 @@ import myLove from './myLove/myLove.vue'
 import cssLoading from './cssLoading.vue'
 import transitionLine from './transitionComp/index.vue'
 import files from './files/files.vue'
+import smoothness from './smoothness/smoothness.vue';
 const components = [
   {
     title: 'imgChangeBackground',
@@ -30,6 +31,11 @@ const components = [
     title: 'transitionLine',
     componentName: transitionLine,
     desc: '一些简单的动画组件'
+  },
+  {
+    title: 'smoothness',
+    componentName: smoothness,
+    desc: '一个简单的vue 自定义指令'
   }
 ]
 export default {
