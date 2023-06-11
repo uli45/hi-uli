@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import {} from 'vue'
+import textLine from '@/components/transitionComp/line.vue'
+import md from './index.md?raw'
 </script>
 
 <template>
   <div class="my-demo">
+    <div class="text">
+      <textLine :md="md" />
+    </div>
     <div class="shell">
       <details open>
         <summary>文件夹名称</summary>
@@ -23,7 +28,7 @@ import {} from 'vue'
                       <details open>
                         <summary>文件夹名称</summary>
                         <div class="folder">
-                          <img src="../assets/images/go.gif" width="150" alt="" />
+                          <img src="../../assets/images/go.gif" width="150" alt="" />
                         </div>
                       </details>
                     </div>
@@ -35,7 +40,7 @@ import {} from 'vue'
           <details open>
             <summary>文件夹名称</summary>
             <div class="folder">
-              <p>文件名</p>
+              <p>文件名称</p>
               <details open>
                 <summary>文件夹名称</summary>
                 <div class="folder">
@@ -43,7 +48,7 @@ import {} from 'vue'
                 </div>
               </details>
             </div>
-            <p>文件名</p>
+            <p>文件名称</p>
           </details>
         </div>
       </details>
@@ -58,6 +63,12 @@ import {} from 'vue'
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  .text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
   .shell {
     position: relative;
     display: block;

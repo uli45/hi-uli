@@ -1,10 +1,10 @@
 import type { App } from 'vue'
 import { compStore } from '@/stores/comp'
-import imgChangeBackground from './imgChangeBackground.vue'
-import myLove from './myLove.vue'
+import imgChangeBackground from './imgChangeBackground/imgChangeBackground.vue'
+import myLove from './myLove/myLove.vue'
 import cssLoading from './cssLoading.vue'
 import transitionLine from './transitionComp/index.vue'
-import files from './files.vue'
+import files from './files/files.vue'
 const components = [
   {
     title: 'imgChangeBackground',

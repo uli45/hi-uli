@@ -1,9 +1,22 @@
 <script setup lang="ts">
-import {} from 'vue'
+import { ref } from 'vue';
+import myDrawer from '../myDrawer.vue'
+
+const props = defineProps({
+    md: {
+    }
+})
+
+const change = () => {
+  if(!props.md) return
+  showDrawer.value = true
+}
+const showDrawer = ref(false) 
 </script>
 
 <template>
-  <div class="line pointer">鼠标悬浮后底部出现线条并向两边延展</div>
+  <div @click="change" class="line pointer">{{ props.md ? '查看代码':'鼠标悬浮后底部出现线条并向两边延展' }}</div>
+  <myDrawer v-model="showDrawer" :text="props.md"></myDrawer>
 </template>
 
 <style scoped lang="less">

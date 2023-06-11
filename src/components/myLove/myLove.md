@@ -1,4 +1,8 @@
-<script setup lang="ts">
+# 一个纯css 实现的520表白信封
+
+## 完整代码
+```vue
+  <script setup lang="ts">
 import {} from 'vue'
 </script>
 
@@ -8,12 +12,13 @@ import {} from 'vue'
       <input id="open" type="checkbox" />
       <label class="open" for="open"></label>
       <div class="card-front">
+        <!-- 图片需要自己准备哦 -->
         <img src="@/assets/images/love.png" alt="" class="love" />
         <div class="note">Open it! 💗💗💗</div>
       </div>
       <div class="card-inside">
         <div class="text-one">
-          <h1>💌520💌</h1>
+          <h1>💌520💌</h1> 
           <h2>
             Your eyes are really beautiful, there are rain, sun and moon, mountains, rivers, clouds,
             flowers and birds, but my eyes are better, because I have you in my eyes.
@@ -134,3 +139,5 @@ input#open {
   }
 }
 </style>
+
+```

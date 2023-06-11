@@ -13,7 +13,12 @@ export const DICT = [
             name: 'open AI 推出ios客户端',
             type: 'link',
             url: 'https://apps.apple.com/us/app/openai-chatgpt/id6448311069'
-          }
+          },
+          {
+            name: '🩺 首个会看胸部X光片的中文多模态医学大模型',
+            type: 'link',
+            url: 'https://github.com/WangRongsheng/XrayGLM'
+          },
         ]
       },
       {
@@ -23,7 +28,32 @@ export const DICT = [
             name: '通过Midjourney绘画，副业月入3000',
             type: 'link',
             url: 'https://bqi1f7fsfpl.feishu.cn/docx/DLdndVjzhoLP44xUDBgcgx8mnFc'
-          }
+          },
+          {
+            name: '靠AI自动生成视频撸自媒体收益，月入5000+',
+            type: 'link',
+            url: 'https://o0y36dyw6y5.feishu.cn/docx/WATsdiYCWoRCyyxvj0Qc0wiLn0f'
+          },
+          {
+            name: '靠AI自动生成视频撸自媒体收益，月入5000+',
+            type: 'link',
+            url: 'https://o0y36dyw6y5.feishu.cn/docx/WATsdiYCWoRCyyxvj0Qc0wiLn0f'
+          },
+          {
+            name: 'AI美女号抖音爆粉——一个视频破万粉【蓝海市场】',
+            type: 'link',
+            url: 'https://o0y36dyw6y5.feishu.cn/docx/BB6ldNIOsoEgVixsZnQc1gMTn3e'
+          },
+          {
+            name: '拆解 月入过万的小红书 头像壁纸玩法 与制作',
+            type: 'link',
+            url: 'https://s0xpyu2kpl6.feishu.cn/docx/MNXhdknUGoyRAJxoaeNcofGmnUh'
+          },
+          {
+            name: '小红书资料号 新玩法 深度运营月入5w+实战分享',
+            type: 'link',
+            url: 'https://d16rg8unadx.feishu.cn/docx/LQGEdxUJookxbSxnFDYcgIScnwd'
+          },
         ]
       },
       {
@@ -79,6 +109,12 @@ export const DICT = [
             name: 'AI 艺术馆',
             type: 'link',
             url: 'https://arthub.ai/'
+          }
+          ,
+          {
+            name: 'AI 免费生成文字logo',
+            type: 'link',
+            url: 'https://www.uugai.com/'
           }
         ]
       },
@@ -174,7 +210,37 @@ export const DICT = [
             name: 'Stable Diffusion 知识库-入坑-进阶-实战',
             type: 'link',
             url: 'https://tob-design.yuque.com/kxcufk/sd'
-          }
+          },
+          {
+            name: '拍张证件照200元？Midjourney免费给你做一张',
+            type: 'link',
+            url: 'https://xikr8g3owj.feishu.cn/docx/VYXOdUvGooF2MTxnN2cc7a4Mnuh'
+          },
+          {
+            name: '0基础小白如何 使用chatGPT 整活 小红书90分 文案 ？',
+            type: 'link',
+            url: 'https://qdrlbziuml.feishu.cn/docx/SPXXd89EFoyWMixuvgOcRnu7nof'
+          },
+          {
+            name: '瞬息宇宙 平行宇宙终极教程',
+            type: 'link',
+            url: 'https://ry5hwpuf7b.feishu.cn/docx/Lfjedtd4QoCkBhxkgTfcBsG1np0'
+          },
+          {
+            name: '瞬息宇宙 穿越之旅终极教程',
+            type: 'link',
+            url: 'https://ry5hwpuf7b.feishu.cn/docx/WbFVdvGkAoo38ZxDumwclWEynRg'
+          },
+          {
+            name: '免费开源的直播推流 录屏软件 全平台支持 windows macos linux',
+            type: 'link',
+            url: 'https://obsproject.com/'
+          },
+          {
+            name: '一款全能的下载工具 兼容 windows macos Linux 支持下载 HTTP、FTP、BT、磁力链接等资源',
+            type: 'link',
+            url: 'https://motrix.app/zh-CN'
+          },
         ]
       }
     ]

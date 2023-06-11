@@ -60,8 +60,13 @@ watch(
   <div class="common-layout">
     <el-container>
       <el-header class="my-header">
-        <div class="left-header">
+        <div class="left-header pointer">
           <h1>uliの小窝</h1>
+          <div class="wechatQRcode">
+              <p>微信扫一扫  进群一起探讨交流</p>
+                <img src="@/assets/images/wechat.png" alt="" />
+           
+          </div>
         </div>
         <div class="right-header">
           <div
@@ -146,9 +151,27 @@ watch(
     justify-content: space-between;
     align-items: center;
     .left-header {
+      position: relative;
       h1 {
         color: @xtxColor;
       }
+      .wechatQRcode {
+          display: none;
+          position: absolute;
+          top: 50px;
+          left: 30px;
+          width: 220px;
+          // height: 100px;
+          z-index: 99999;
+          background-color: #fff;
+          text-align: center;
+        }
+        &:hover {
+          .wechatQRcode {
+            display: block;
+            
+          }
+        }
     }
     .right-header {
       text-align: right;
