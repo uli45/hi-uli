@@ -208,3 +208,70 @@ span {
 </style>
 
   ```
+
+  # 渐变阴影 
+  - 主要使用的是 `css变量` 和 ` clip-path`
+  - 使用方法
+  
+    - 1，可以在全局less文件内添加css代码 or 在当前vue文件内 添加css代码 全部代码在下文
+    
+    - 2，然后给标签绑定class类名  `gradientShadow`
+
+    - 3，修改变量值即可
+  
+    - 4，注意 必须给该类名设置宽高
+  
+  | 变量名   | 默认值  | 说明   |
+  | ------- | -------  | ----- |
+  |`--sx`    |  10px    | x轴 偏移量 正负值均可 |
+  | `--sy`    |  10px    | y轴 偏移量 正负值均可|
+  | `--blur`  |  10px    | 模糊数值   |
+  | `--color`    |  #ffd700, #f79d03, #ee6907, #e6390a, #de0d0d, #d61309,#cf1261, #c71585, #cf1261, #d61039, #de0d0d,#ee6907,  #f79d03, #ffd700    | 锥形渐变色 |
+  
+  ### 全部代码
+  ```less 
+  //渐变阴影  
+  //我这里是在全局less文件内创建的 所以未设置宽高 只需要在使用该类名的vue文件内的style 内再次书写该类名并设置宽高即可 如果你是直接在vue文件内使用该代码，请一定要设置宽高，否则不生效
+.gradientShadow {
+  position: relative;
+  --sx:10px;
+  --sy:10px;
+  --blur:10px;
+  --color:    #ffd700,
+              #f79d03,
+              #ee6907,
+              #e6390a,
+              #de0d0d,
+              #d61309,
+              #cf1261,
+              #c71585,
+              #cf1261,
+              #d61039,
+              #de0d0d,
+              #ee6907,
+              #f79d03,
+              #ffd700;
+  &:after {
+      content: '';
+      position: absolute;
+      left: var(--sx);
+      top: var(--sy);
+      width: 100%;
+      height: 100%;
+      filter: blur(var(--blur));
+      background: conic-gradient(var(--color));
+      clip-path: polygon(
+              -100vmax -100vmax,
+              100vmax -100vmax,
+              100vmax 100vmax,
+              -100vmax 100vmax,
+              -100vmax -100vmax,
+              calc(0px - var(--sx)) calc(0px - var(--sy)),
+              calc(0px - var(--sx)) calc(100% - var(--sy)),
+              calc(100% - var(--sx)) calc(100% - var(--sy)),
+              calc(100% - var(--sx)) calc(0px - var(--sy)),
+              calc(0px - var(--sx)) calc(0px - var(--sy))
+              );
+  }
+}
+  ```

@@ -11,7 +11,7 @@ export const compStore = defineStore(
     // 设置
     const setKey = (keyList: compInfo) => {
       keys!.value.push(keyList)
-      console.log(keys.value)
+      // console.log(keys.value)
     }
     const clearKeys = () => {
       keys.value = []

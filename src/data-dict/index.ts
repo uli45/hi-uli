@@ -18,7 +18,7 @@ export const DICT = [
             name: '🩺 首个会看胸部X光片的中文多模态医学大模型',
             type: 'link',
             url: 'https://github.com/WangRongsheng/XrayGLM'
-          },
+          }
         ]
       },
       {
@@ -53,7 +53,7 @@ export const DICT = [
             name: '小红书资料号 新玩法 深度运营月入5w+实战分享',
             type: 'link',
             url: 'https://d16rg8unadx.feishu.cn/docx/LQGEdxUJookxbSxnFDYcgIScnwd'
-          },
+          }
         ]
       },
       {
@@ -109,8 +109,7 @@ export const DICT = [
             name: 'AI 艺术馆',
             type: 'link',
             url: 'https://arthub.ai/'
-          }
-          ,
+          },
           {
             name: 'AI 免费生成文字logo',
             type: 'link',
@@ -240,7 +239,7 @@ export const DICT = [
             name: '一款全能的下载工具 兼容 windows macos Linux 支持下载 HTTP、FTP、BT、磁力链接等资源',
             type: 'link',
             url: 'https://motrix.app/zh-CN'
-          },
+          }
         ]
       }
     ]

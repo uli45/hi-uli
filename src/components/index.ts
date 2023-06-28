@@ -3,9 +3,11 @@ import { compStore } from '@/stores/comp'
 import imgChangeBackground from './imgChangeBackground/imgChangeBackground.vue'
 import myLove from './myLove/myLove.vue'
 import cssLoading from './cssLoading.vue'
-import transitionLine from './transitionComp/index.vue'
+import transitionLine from './transitionComp/transitionComp.vue'
 import files from './files/files.vue'
-import smoothness from './smoothness/smoothness.vue';
+import smoothness from './smoothness/smoothness.vue'
+import ParticleClock from './ParticleClock/ParticleClock.vue'
+import JustWatched from  './JustWatched/JustWatched.vue'
 const components = [
   {
     title: 'imgChangeBackground',
@@ -30,13 +32,23 @@ const components = [
   {
     title: 'transitionLine',
     componentName: transitionLine,
-    desc: '一些简单的动画组件'
+    desc: '一些简单的css效果'
   },
   {
     title: 'smoothness',
     componentName: smoothness,
-    desc: '一个简单的vue 自定义指令'
-  }
+    desc: '一个简单的vue自定义指令 -- 平滑移动 '
+  },
+  // {
+  //   title: 'ParticleClock',
+  //   componentName: ParticleClock,
+  //   desc: 'canvas 粒子时钟效果'
+  // },
+  {
+    title: 'JustWatched',
+    componentName: JustWatched,
+    desc: '实现抖音刚刚看过效果'
+  },
 ]
 export default {
   install(app: App) {

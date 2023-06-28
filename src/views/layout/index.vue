@@ -63,9 +63,8 @@ watch(
         <div class="left-header pointer">
           <h1>uliの小窝</h1>
           <div class="wechatQRcode">
-              <p>微信扫一扫  进群一起探讨交流</p>
-                <img src="@/assets/images/wechat.png" alt="" />
-           
+            <p>微信扫一扫 进群一起探讨交流</p>
+            <img src="@/assets/images/wechat.png" alt="" />
           </div>
         </div>
         <div class="right-header">
@@ -156,22 +155,21 @@ watch(
         color: @xtxColor;
       }
       .wechatQRcode {
-          display: none;
-          position: absolute;
-          top: 50px;
-          left: 30px;
-          width: 220px;
-          // height: 100px;
-          z-index: 99999;
-          background-color: #fff;
-          text-align: center;
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: 30px;
+        width: 220px;
+        // height: 100px;
+        z-index: 99999;
+        background-color: #fff;
+        text-align: center;
+      }
+      &:hover {
+        .wechatQRcode {
+          display: block;
         }
-        &:hover {
-          .wechatQRcode {
-            display: block;
-            
-          }
-        }
+      }
     }
     .right-header {
       text-align: right;

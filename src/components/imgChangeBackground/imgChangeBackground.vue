@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 import ColorThief from 'colorthief'
 import { ElMessage } from 'element-plus'
-import  textLine from '../transitionComp/line.vue'
-import type { imgs,  } from '@/types/compInfo'
+import textLine from '../transitionComp/line.vue'
+import type { imgs } from '@/types/compInfo'
 import md from './index.md?raw'
 
 const colorThief = new ColorThief()
@@ -44,16 +44,30 @@ const showDrawer = ref(false)
 
 <template>
   <div class="my-demo changeBackGround">
-    <h1>根据图片变化背景颜色 <div> <textLine  text="查看代码" :md="md"></textLine> </div></h1>
+    <h1>
+      根据图片变化背景颜色
+      <div><textLine  :md="md"></textLine></div>
+    </h1>
     <el-row :gutter="20">
-      <el-col :sm="24" :md="12" v-for="(item, index) in images" :key="item.src" :class="{
-        mgTop: index == 2 || index == 3
-      }">
+      <el-col
+        :sm="24"
+        :md="12"
+        v-for="(item, index) in images"
+        :key="item.src"
+        :class="{
+          mgTop: index == 2 || index == 3
+        }"
+      >
         <div class="imgBox">
-          <img :src="item.src" crossorigin="anonymous" @mouseenter.self="handleMouseHover($event.target, index)"
-            @mouseleave.self="handleMouseLeave" :style="{
+          <img
+            :src="item.src"
+            crossorigin="anonymous"
+            @mouseenter.self="handleMouseHover($event.target, index)"
+            @mouseleave.self="handleMouseLeave"
+            :style="{
               opacity: hoverIndex === -1 ? 1 : index === hoverIndex ? 1 : 0.2
-            }" />
+            }"
+          />
         </div>
       </el-col>
     </el-row>
@@ -62,10 +76,12 @@ const showDrawer = ref(false)
 
 <style scoped lang="less">
 .changeBackGround {
-  background: linear-gradient(to bottom,
-      var(--changeBackground1),
-      var(--changeBackground2),
-      var(--changeBackground3));
+  background: linear-gradient(
+    to bottom,
+    var(--changeBackground1),
+    var(--changeBackground2),
+    var(--changeBackground3)
+  );
 
   .imgBox {
     transition: transform 0.5s;
@@ -83,13 +99,13 @@ const showDrawer = ref(false)
     height: 100%;
   }
 
-  h1  {
+  h1 {
     margin: 10px;
     div {
       display: inline-block;
       font-size: 14px;
       font-weight: normal;
     }
-}
+  }
 }
 </style>

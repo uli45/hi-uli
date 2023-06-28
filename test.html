@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex属性布局的使用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        .box {
+            width: 100%;
+            height: 300px;
+            background-color: pink;
+            border: 1px solid #eee;
+        }
+
+        .box div {
+            width: 200px;
+            height: 300px;
+            background-color: skyblue;
+        }
+        .flex {
+            display: flex;
+        }
+        .flexJustifySpaceBetween {
+            justify-content: space-between;
+        }
+        .flexJustifySpaceAround {
+            justify-content: space-around;
+        }
+        .flexJustifySpaceEvenly {
+            justify-content: space-evenly;
+        }
+        .flexJustifyCenter {
+            justify-content: center;
+        }
+        .flexJustifyStart {
+            justify-content: flex-start;
+        }
+        .flexJustifyEnd {
+            justify-content: flex-end;
+        }
+        .flexItemsCenter {
+            align-items: center;
+        }
+        .flexItemsStart {
+            align-items: flex-start;
+        }
+        .flexItemsEnd {
+            align-items: flex-end;
+        }
+        .flexItemsStretch {
+            align-items: stretch;
+        }
+        .flexItemsBaseline {
+            align-items: baseline;
+        }
+        .flexWrap {
+            flex-wrap: wrap;
+        }
+        .flexDirectionColumn {
+            flex-direction: column;
+        }
+        .flexDirectionRowReverse {
+            flex-direction: row-reverse;
+        }
+        .flexDirectionColumnReverse {
+            flex-direction: column-reverse;
+        }
+        .flexContentBaseLine {
+            align-content: baseline;
+        }
+        .flexContentStart {
+            align-content: flex-start;
+        }
+        .flexContentFlexEnd {
+            align-content: flex-end;
+        }
+        .flexContentSpaceAround {
+            align-content: space-around;
+        }
+        .flexContentSpaceBetween {
+            align-content: space-between;
+        }
+        .flexContentStretch {
+            align-content: stretch;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box flex flexJustifySpaceAround">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+
+</html>

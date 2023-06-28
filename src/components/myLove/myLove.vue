@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import  textLine from '../transitionComp/line.vue'
+import textLine from '../transitionComp/line.vue'
 import md from './myLove.md?raw'
 </script>
 
 <template>
   <div class="my-demo">
     <div class="text-line">
-      <textLine  text="查看代码" :md="md"></textLine>
+      <textLine text="查看代码" :md="md"></textLine>
     </div>
     <div class="card">
       <input id="open" type="checkbox" />
@@ -18,7 +18,7 @@ import md from './myLove.md?raw'
       </div>
       <div class="card-inside">
         <div class="text-one">
-          <h1>💌520💌</h1> 
+          <h1>💌520💌</h1>
           <h2>
             Your eyes are really beautiful, there are rain, sun and moon, mountains, rivers, clouds,
             flowers and birds, but my eyes are better, because I have you in my eyes.

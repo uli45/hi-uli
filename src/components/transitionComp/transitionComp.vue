@@ -3,14 +3,16 @@ import { ref } from 'vue'
 import breathingLight from './breathingLight.vue'
 import prettyBtn from './prettyBtn.vue'
 import Line from './line.vue'
+import transitionBG from './transitionBG.vue'
 import md from './index.md?raw'
 </script>
 
 <template>
   <div class="my-demo">
-    <div class="title">一些简单的css动画效果 
+    <div class="title">
+      一些简单的css效果
       <div>
-        <Line  :md="md"></Line>
+        <Line :md="md"></Line>
       </div>
     </div>
     <div class="itemBox">
@@ -21,7 +23,10 @@ import md from './index.md?raw'
         <breathingLight></breathingLight>
       </div>
       <div class="item">
-        <Line  ></Line>
+        <Line></Line>
+      </div>
+      <div class="item">
+        <transitionBG></transitionBG>
       </div>
     </div>
   </div>
@@ -38,9 +43,7 @@ import md from './index.md?raw'
   }
 }
 .item {
-  display: inline-block;
   margin-right: 20px;
-  border-radius: 5px;
-  overflow: hidden;
+  float: left;
 }
 </style>
