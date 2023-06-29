@@ -4,25 +4,25 @@ import textLine from '@/components/transitionComp/line.vue'
 import md from './index.md?raw'
 const count = ref(0)
 const load = () => {
-    return
+  return
 }
 onMounted(() => {
-    // return
-    count.value = 100
-    for (let i = 0; i < count.value; i++) {
-        randomColor()
-    }
+  // return
+  count.value = 100
+  for (let i = 0; i < count.value; i++) {
+    randomColor()
+  }
 })
 
 const colorList = ref<string[]>([])
 
 const randomColor = () => {
-    const letters: string = '0123456789ABCDEF'
-    let color: string = '#'
-    for (let i: number = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)]
-    }
-    colorList.value.push(color)
+  const letters: string = '0123456789ABCDEF'
+  let color: string = '#'
+  for (let i: number = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)]
+  }
+  colorList.value.push(color)
 }
 </script>
 <template>
@@ -68,5 +68,4 @@ const randomColor = () => {
 .infinite-list .infinite-list-item + .list-item {
   margin-top: 10px;
 }
-
 </style>

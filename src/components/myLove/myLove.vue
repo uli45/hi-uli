@@ -7,7 +7,7 @@ import md from './myLove.md?raw'
 <template>
   <div class="my-demo">
     <div class="text-line">
-      <textLine  :md="md"></textLine>
+      <textLine :md="md"></textLine>
     </div>
     <div class="card">
       <input id="open" type="checkbox" />

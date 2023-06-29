@@ -34,10 +34,10 @@ VMdPreview.use(githubTheme, {
 
 const app = createApp(App)
 
-app.config.globalProperties.$DisableRightClick = true;
-app.config.globalProperties.$DebugMode = false;
-app.config.globalProperties.$DisableF12 = true;
-app.config.globalProperties.$DisableDevTools = true;
+app.config.globalProperties.$DisableRightClick = true
+app.config.globalProperties.$DebugMode = false
+app.config.globalProperties.$DisableF12 = true
+app.config.globalProperties.$DisableDevTools = true
 // 注册自定义指令
 
 app.directive('slide', directive)
@@ -54,28 +54,23 @@ app.mount('#app')
 
 document.addEventListener('contextmenu', (e) => {
   if (app.config.globalProperties.$DisableRightClick) {
-    e.preventDefault();
+    e.preventDefault()
     window.alert('本站已禁止右键')
   }
-  if (app.config.globalProperties.$DebugMode) {
-    window.debug = true;
-  } else {
-    window.debug = false;
-  }
-});
+})
 document.addEventListener('keydown', (e) => {
   if (app.config.globalProperties.$DisableF12 && e.key === 'F12') {
-    e.preventDefault();
+    e.preventDefault()
   }
-});
+})
 if (app.config.globalProperties.$DisableDevTools) {
-  const element = document.createElement('script');
+  const element = document.createElement('script')
   element.textContent = `
     (function(window, document) {
       window.alert = function(message) {
         console.log(message);
       };
     })(window, document);
-  `;
-  document.head.append(element);
+  `
+  document.head.append(element)
 }

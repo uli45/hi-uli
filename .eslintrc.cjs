@@ -29,8 +29,8 @@ module.exports = {
         ignores: ['index']
       }
     ],
-    'vue/no-setup-props-destructure': ['off'],
+    'vue/no-setup-props-destructure': ['off']
     // 保存代码时缩进4个空格
-    indent: ['error', 4]
+    // indent: ['error', 4]
   }
 }

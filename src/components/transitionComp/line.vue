@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import myDrawer from '../myDrawer.vue'
 
 const props = defineProps({
-    md: {}
+  md: {}
 })
 
 const change = () => {

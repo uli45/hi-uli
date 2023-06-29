@@ -1,13 +1,13 @@
 <script setup lang="ts">
 defineProps({
-    modelValue: {
-        type: Boolean,
-        default: false,
-        required: true
-    },
-    text: {
-        required: true
-    }
+  modelValue: {
+    type: Boolean,
+    default: false,
+    required: true
+  },
+  text: {
+    required: true
+  }
 })
 
 const emit = defineEmits<{
@@ -15,7 +15,7 @@ const emit = defineEmits<{
 }>()
 
 const handleClose = () => {
-    emit('update:modelValue', false)
+  emit('update:modelValue', false)
 }
 </script>
 

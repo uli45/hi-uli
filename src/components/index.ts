@@ -7,7 +7,7 @@ import transitionLine from './transitionComp/transitionComp.vue'
 import files from './files/files.vue'
 import smoothness from './smoothness/smoothness.vue'
 import ParticleClock from './ParticleClock/ParticleClock.vue'
-import JustWatched from  './JustWatched/JustWatched.vue'
+import JustWatched from './JustWatched/JustWatched.vue'
 const components = [
   {
     title: 'imgChangeBackground',
@@ -29,7 +29,7 @@ const components = [
     componentName: files,
     desc: '一个纯css实现的文件夹'
   },
- 
+
   {
     title: 'smoothness',
     componentName: smoothness,
@@ -49,7 +49,7 @@ const components = [
     title: 'transitionLine',
     componentName: transitionLine,
     desc: '一些简单的css效果'
-  },
+  }
 ]
 export default {
   install(app: App) {

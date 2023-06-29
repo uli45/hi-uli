@@ -46,7 +46,7 @@ const showDrawer = ref(false)
   <div class="my-demo changeBackGround">
     <h1>
       根据图片变化背景颜色
-      <div><textLine  :md="md"></textLine></div>
+      <div><textLine :md="md"></textLine></div>
     </h1>
     <el-row :gutter="20">
       <el-col
