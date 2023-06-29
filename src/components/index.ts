@@ -29,11 +29,7 @@ const components = [
     componentName: files,
     desc: '一个纯css实现的文件夹'
   },
-  {
-    title: 'transitionLine',
-    componentName: transitionLine,
-    desc: '一些简单的css效果'
-  },
+ 
   {
     title: 'smoothness',
     componentName: smoothness,
@@ -48,6 +44,11 @@ const components = [
     title: 'JustWatched',
     componentName: JustWatched,
     desc: '实现抖音刚刚看过效果'
+  },
+  {
+    title: 'transitionLine',
+    componentName: transitionLine,
+    desc: '一些简单的css效果'
   },
 ]
 export default {

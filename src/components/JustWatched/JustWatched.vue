@@ -33,7 +33,7 @@ const getVideos = (page: number, size: number) => {
     data.value.push({
       loaded: false,
       id: Math.floor(Math.random() * (100000 - 1 + 1)) + 1,
-      url: `https://picsum.photos/1920/1080?r=${Math.floor(Math.random() * (100000 - 1 + 1)) + 1}`
+      url: `https://picsum.photos/1920/1080?r=${id.value++}`
     })
   }
   return data
