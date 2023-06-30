@@ -8,6 +8,7 @@ import files from './files/files.vue'
 import smoothness from './smoothness/smoothness.vue'
 import ParticleClock from './ParticleClock/ParticleClock.vue'
 import JustWatched from './JustWatched/JustWatched.vue'
+import anyLineInBezier from './anyLineInBezier/anyLineInBezier.vue'
 const components = [
   {
     title: 'imgChangeBackground',
@@ -44,6 +45,11 @@ const components = [
     title: 'JustWatched',
     componentName: JustWatched,
     desc: '实现抖音刚刚看过效果'
+  },
+  {
+    title: 'anyLineInBezier',
+    componentName: anyLineInBezier,
+    desc: '利用贝塞尔曲线实现任意2点之间连线'
   },
   {
     title: 'transitionLine',

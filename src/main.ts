@@ -52,6 +52,8 @@ app.use(ElementPlus, { size: 'small' })
 app.use(VMdPreview)
 app.mount('#app')
 
+if (import.meta.env.PROD) {
+  // 在生产环境下执行的代码
 document.addEventListener('contextmenu', (e) => {
   if (app.config.globalProperties.$DisableRightClick) {
     e.preventDefault()
@@ -73,4 +75,5 @@ if (app.config.globalProperties.$DisableDevTools) {
     })(window, document);
   `
   document.head.append(element)
+}
 }

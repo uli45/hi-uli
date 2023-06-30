@@ -94,7 +94,7 @@ const draw = () => {
   window.requestAnimationFrame(draw)
 }
 onMounted(() => {
-  canvas.value = document.getElementById('myCanvas') as HTMLCanvasElement // 使用类型断言将其转换为 HTMLCanvasElement 类型
+  //canvas.value = document.getElementById('myCanvas') as HTMLCanvasElement // 使用类型断言将其转换为 HTMLCanvasElement 类型
   //得到 canvas 上下文对象
   // ctx.value = canvas.value.getContext('2d', { willReadFrequentLy: true })
   // initCanvasSize()
