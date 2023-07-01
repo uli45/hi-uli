@@ -9,7 +9,13 @@ import smoothness from './smoothness/smoothness.vue'
 import ParticleClock from './ParticleClock/ParticleClock.vue'
 import JustWatched from './JustWatched/JustWatched.vue'
 import anyLineInBezier from './anyLineInBezier/anyLineInBezier.vue'
+import cssClock from './cssClock/cssClock.vue'
 const components = [
+  {
+    title: 'cssClock',
+    componentName: cssClock,
+    desc: '一个完全css实现的时钟'
+  },
   {
     title: 'imgChangeBackground',
     componentName: imgChangeBackground,

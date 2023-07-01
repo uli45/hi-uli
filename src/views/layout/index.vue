@@ -68,15 +68,8 @@ watch(
           </div>
         </div>
         <div class="right-header">
-          <div
-            class="item"
-            v-for="(item, index) in DICT"
-            :key="item.category"
-            @click="toLink(item.type, item?.url)"
-            @mouseenter="myMouseover(item.type, index)"
-            @mouseleave="show = false"
-            :class="{ active: index === 3 }"
-          >
+          <div class="item" v-for="(item, index) in DICT" :key="item.category" @click="toLink(item.type, item?.url)"
+            @mouseenter="myMouseover(item.type, index)" @mouseleave="show = false" :class="{ active: index === 3 }">
             {{ item.category }}
             <span v-show="item.type === 'select' || item.type === 'AIboom'">
               <el-icon class="icon" :size="iconSize" :color="iconColor">
@@ -87,16 +80,13 @@ watch(
                   <el-scrollbar max-height="80vh">
                     <template v-for="i in item.data" :key="i.title">
                       <div class="title">{{ i.title }}</div>
-                      <div
-                        class="options ellipsis"
-                        v-for="v in i.list"
-                        :key="v.url"
-                        @click.stop="toLink(v.type, v.url)"
-                      >
+                      <div class="options ellipsis" v-for="v in i.list" :key="v.url" @click.stop="toLink(v.type, v.url)">
                         <el-tooltip :content="v.name" placement="left-start">
                           {{ v.name }}
                         </el-tooltip>
-                        <el-icon><Link /></el-icon>
+                        <el-icon>
+                          <Link />
+                        </el-icon>
                       </div>
                     </template>
                   </el-scrollbar>
@@ -109,13 +99,8 @@ watch(
       <el-container>
         <el-aside width="300px">
           <el-scrollbar max-height="90vh">
-            <div
-              v-for="item in store.keys"
-              :key="item.title"
-              class="hoverShadow scrollbar-demo-item pointer"
-              :class="{ active: currentComp === item.componentName }"
-              @click="changeComp(item.componentName)"
-            >
+            <div v-for="item in store.keys" :key="item.title" class="hoverShadow scrollbar-demo-item pointer"
+              :class="{ active: currentComp === item.componentName }" @click="changeComp(item.componentName)">
               <!-- <p>{{ item.title }}</p> -->
               <p>{{ item.desc }}</p>
             </div>
@@ -133,27 +118,29 @@ watch(
 .common-layout {
   min-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(
-    90deg,
-    #ffffff 1%,
-    #ead2ea 10.2%,
-    #e4d5ee 19.6%,
-    #d1def3 36.8%,
-    #b5dee5 62.2%,
-    #cfebf3 88.9%,
-    #ffffff 99%
-  ) !important;
+  background: linear-gradient(90deg,
+      #efdfef 1%,
+      #ead2ea 10.2%,
+      #e4d5ee 19.6%,
+      #d1def3 36.8%,
+      #b5dee5 62.2%,
+      #cfebf3 88.9%,
+      #c8eaf3 99%) !important;
+
   .my-header {
     display: flex;
     border-bottom: 1px solid #efebeb;
     line-height: 60px;
     justify-content: space-between;
     align-items: center;
+
     .left-header {
       position: relative;
+
       h1 {
         color: @xtxColor;
       }
+
       .wechatQRcode {
         display: none;
         position: absolute;
@@ -165,21 +152,25 @@ watch(
         background-color: #fff;
         text-align: center;
       }
+
       &:hover {
         .wechatQRcode {
           display: block;
         }
       }
     }
+
     .right-header {
       text-align: right;
       font-size: 14px;
+
       .item {
         cursor: pointer;
         display: inline-block;
         margin-right: 20px;
         text-align: center;
         position: relative;
+
         .select {
           position: absolute;
           top: 50px;
@@ -192,6 +183,7 @@ watch(
           text-align: left;
           z-index: 1000;
           color: #000;
+
           .title {
             font-size: 14px;
             font-weight: 600;
@@ -199,6 +191,7 @@ watch(
             white-space: nowrap;
             cursor: default;
           }
+
           .options {
             cursor: pointer;
             line-height: 2;
@@ -210,15 +203,18 @@ watch(
             }
           }
         }
+
         .icon {
           vertical-align: -1px;
         }
+
         // &:hover {
         //   color: @hoverColor;
         // }
       }
     }
   }
+
   .scrollbar-demo-item {
     // display: flex;
     // align-items: center;
