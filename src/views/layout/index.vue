@@ -60,7 +60,7 @@ watch(
   <div class="common-layout">
     <el-container>
       <el-header class="my-header">
-        <div class="left-header pointer">
+        <div class="left-header">
           <h1>
             uliの小窝
             <span><a href="https://free.3v.do/gbook/index.asp?username=uli">找我吐槽</a></span>
@@ -171,17 +171,6 @@ watch(
           }
           0% {
             background-position: 0 0;
-          }
-        }
-        @keyframes rainbow {
-          0% {
-            background-position: 0% 50%;
-          }
-          100% {
-            background-position: 100% 50%;
-          }
-          0% {
-            background-position: 0% 50%;
           }
         }
         span {
