@@ -61,15 +61,25 @@ watch(
     <el-container>
       <el-header class="my-header">
         <div class="left-header pointer">
-          <h1>uliの小窝</h1>
+          <h1>
+            uliの小窝
+            <span><a href="https://free.3v.do/gbook/index.asp?username=uli">找我吐槽</a></span>
+          </h1>
           <div class="wechatQRcode">
             <p>微信扫一扫 进群一起探讨交流</p>
             <img src="@/assets/images/wechat.png" alt="" />
           </div>
         </div>
         <div class="right-header">
-          <div class="item" v-for="(item, index) in DICT" :key="item.category" @click="toLink(item.type, item?.url)"
-            @mouseenter="myMouseover(item.type, index)" @mouseleave="show = false" :class="{ active: index === 3 }">
+          <div
+            class="item"
+            v-for="(item, index) in DICT"
+            :key="item.category"
+            @click="toLink(item.type, item?.url)"
+            @mouseenter="myMouseover(item.type, index)"
+            @mouseleave="show = false"
+            :class="{ active: index === 3 }"
+          >
             {{ item.category }}
             <span v-show="item.type === 'select' || item.type === 'AIboom'">
               <el-icon class="icon" :size="iconSize" :color="iconColor">
@@ -80,7 +90,12 @@ watch(
                   <el-scrollbar max-height="80vh">
                     <template v-for="i in item.data" :key="i.title">
                       <div class="title">{{ i.title }}</div>
-                      <div class="options ellipsis" v-for="v in i.list" :key="v.url" @click.stop="toLink(v.type, v.url)">
+                      <div
+                        class="options ellipsis"
+                        v-for="v in i.list"
+                        :key="v.url"
+                        @click.stop="toLink(v.type, v.url)"
+                      >
                         <el-tooltip :content="v.name" placement="left-start">
                           {{ v.name }}
                         </el-tooltip>
@@ -99,8 +114,13 @@ watch(
       <el-container>
         <el-aside width="300px">
           <el-scrollbar max-height="90vh">
-            <div v-for="item in store.keys" :key="item.title" class="hoverShadow scrollbar-demo-item pointer"
-              :class="{ active: currentComp === item.componentName }" @click="changeComp(item.componentName)">
+            <div
+              v-for="item in store.keys"
+              :key="item.title"
+              class="hoverShadow scrollbar-demo-item pointer"
+              :class="{ active: currentComp === item.componentName }"
+              @click="changeComp(item.componentName)"
+            >
               <!-- <p>{{ item.title }}</p> -->
               <p>{{ item.desc }}</p>
             </div>
@@ -118,14 +138,16 @@ watch(
 .common-layout {
   min-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(90deg,
-      #efdfef 1%,
-      #ead2ea 10.2%,
-      #e4d5ee 19.6%,
-      #d1def3 36.8%,
-      #b5dee5 62.2%,
-      #cfebf3 88.9%,
-      #c8eaf3 99%) !important;
+  background: linear-gradient(
+    90deg,
+    #efdfef 1%,
+    #ead2ea 10.2%,
+    #e4d5ee 19.6%,
+    #d1def3 36.8%,
+    #b5dee5 62.2%,
+    #cfebf3 88.9%,
+    #c8eaf3 99%
+  ) !important;
 
   .my-header {
     display: flex;
@@ -139,6 +161,46 @@ watch(
 
       h1 {
         color: @xtxColor;
+        @keyframes maskedAnimation {
+          0% {
+            background-position: 0 0;
+          }
+
+          100% {
+            background-position: -100% 0;
+          }
+          0% {
+            background-position: 0 0;
+          }
+        }
+        @keyframes rainbow {
+          0% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 100% 50%;
+          }
+          0% {
+            background-position: 0% 50%;
+          }
+        }
+        span {
+          letter-spacing: 0.2rem;
+          font-size: 14px;
+          background-image: linear-gradient(
+            to left,
+            #147b96,
+            #e6d205 25%,
+            #147b96 50%,
+            #e6d205 75%,
+            #147b96
+          );
+          background-size: 1400% 100%;
+          animation: maskedAnimation 10s linear infinite;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
       }
 
       .wechatQRcode {
