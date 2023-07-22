@@ -16,7 +16,12 @@ const myMouseover = (type: string, index: number) => {
     show.value = true
   }
 }
-//跳转外链
+
+/**
+ *
+ * @param type
+ * @param link  跳转外链
+ */
 const toLink = (type: string, link: string | undefined) => {
   if (type === 'link') {
     show.value = false

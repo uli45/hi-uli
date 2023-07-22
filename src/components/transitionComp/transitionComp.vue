@@ -4,6 +4,7 @@ import breathingLight from './breathingLight.vue'
 import prettyBtn from './prettyBtn.vue'
 import Line from './line.vue'
 import transitionBG from './transitionBG.vue'
+import loading from './loading.vue'
 import md from './index.md?raw'
 </script>
 
@@ -27,6 +28,9 @@ import md from './index.md?raw'
       </div>
       <div class="item">
         <transitionBG></transitionBG>
+      </div>
+      <div class="item" style="margin-left: 30px">
+        <loading></loading>
       </div>
     </div>
   </div>

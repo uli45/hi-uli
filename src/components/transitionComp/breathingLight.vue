@@ -16,6 +16,7 @@ import {} from 'vue'
   justify-content: center;
   align-items: center;
   background: #000;
+  overflow: hidden;
 }
 span {
   width: 60px;
