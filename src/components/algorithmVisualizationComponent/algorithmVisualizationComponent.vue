@@ -242,10 +242,10 @@ const radixSort = async (data: Number[], maxDigit: number) => {
   const arr = JSON.parse(JSON.stringify(data))
   let mod = 10
   let dev = 1
-  let counter = []
+  let counter = [] as any[]
   for (let i = 0; i < maxDigit; i++, dev *= 10, mod *= 10) {
     for (let j = 0; j < arr.length; j++) {
-      let bucket = parseInt((arr[j] % mod) / dev)
+      let bucket = (arr[j] % mod) / dev
       if (counter[bucket] == null) {
         counter[bucket] = []
       }
@@ -266,7 +266,7 @@ const radixSort = async (data: Number[], maxDigit: number) => {
   updateTimer(false, new Date(), '基数排序')
   return arr
 }
-const shellSort = async (data: Number[], maxDigit: number) => {
+const shellSort = async (data: Number[]) => {
   if (start.value) return ElMessage.error('已经开始排序，请等待排序完成后再开始')
   start.value = true
   updateTimer(true, new Date(), '希尔排序')
@@ -346,7 +346,7 @@ const countingSort = async (data: any) => {
       <el-button type="primary" @click="insertionSort(numList)">插入排序</el-button>
       <el-button type="primary" @click="heapSort(numList)">堆排序</el-button>
       <el-button type="primary" @click="radixSort(numList, 3)">基数排序</el-button>
-      <el-button type="primary" @click="shellSort(numList, 3)">希尔排序</el-button>
+      <el-button type="primary" @click="shellSort(numList)">希尔排序</el-button>
       <el-button type="primary" @click="countingSort(numList)">计数排序</el-button>
     </div>
     <canvas id="canvas" ref="canvas" width="1600" height="600" style="background: #000"></canvas>

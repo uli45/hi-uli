@@ -1,6 +1,6 @@
 # 几个简单算法可视化组件
 ```vue
-      <script setup lang="ts">
+    <script setup lang="ts">
   import { ref, onMounted } from 'vue'
   import textLine from '../transitionComp/line.vue'
   import md from './index.md?raw'
@@ -244,10 +244,10 @@
     const arr = JSON.parse(JSON.stringify(data))
     let mod = 10
     let dev = 1
-    let counter = []
+    let counter = [] as any[]
     for (let i = 0; i < maxDigit; i++, dev *= 10, mod *= 10) {
       for (let j = 0; j < arr.length; j++) {
-        let bucket = parseInt((arr[j] % mod) / dev)
+        let bucket = (arr[j] % mod) / dev
         if (counter[bucket] == null) {
           counter[bucket] = []
         }
