@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, watchEffect } from 'vue'
-import { useIntersectionObserver, useScroll } from '@vueuse/core'
+import { useIntersectionObserver } from '@vueuse/core'
 import md from './index.md?raw'
 import textLine from '../transitionComp/line.vue'
 interface Data {

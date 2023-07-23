@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="1000" height="800" style="background: #000"></canvas>
+  <button id="start">开始</button>
+  <button id="stop">结束</button>
+  <div id="timer">0S.0ms</div>
+  <button id="btn">开始</button>
+  <script>
+    let nums = []
+    for (let i = 0; i < 4; i++) {
+      // 生成一个 0 - 179的有序数组
+      const arr = [...Array(180).keys()] // Array.keys()可以学一下，很有用
+      const res = []
+      while (arr.length) {
+        // 打乱
+        const randomIndex = Math.random() * arr.length - 1
+        res.push(arr.splice(randomIndex, 1)[0])
+      }
+      nums = [...nums, ...res]
+    }
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+    ctx.fillStyle = 'white' // 设置画画的颜色
+    ctx.translate(500, 500) // 移动中心点到(500, 500)
+    // 单个长方形构造函数
+    function Rect(x, y, width, height) {
+      this.x = x // 坐标x
+      this.y = y // 坐标y
+      this.width = width // 长方形的宽
+      this.height = height // 长方形的高
+    }
+
+    // 单个长方形的渲染函数
+    Rect.prototype.draw = function () {
+      ctx.beginPath() // 开始画一个
+      ctx.fillRect(this.x, this.y, this.width, this.height) // 画一个
+      ctx.closePath() // 结束画一个
+    }
+
+    const CosandSin = []
+    for (let i = 0; i < 360; i++) {
+      const jiaodu = (i / 180) * Math.PI
+      CosandSin.push({ cos: Math.cos(jiaodu), sin: Math.sin(jiaodu) })
+    }
+
+    function drawAll(arr) {
+      const rects = [] // 用来存储720个长方形
+      for (let i = 0; i < arr.length; i++) {
+        const num = arr[i]
+        const { cos, sin } = CosandSin[Math.floor(i / 2)] // 一个角画两个
+        const x = num * cos // x = ρ * cosθ
+        const y = num * sin // y = ρ * sinθ
+        rects.push(new Rect(x, y, 5, 3)) // 收集所有长方形
+      }
+      rects.forEach((rect) => rect.draw()) // 遍历渲染
+      // console.log(rects);
+    }
+    drawAll(nums) // 执行渲染函数
+    let startTime;
+    let timer;
+
+    document.getElementById('start').addEventListener('click', function () {
+      startTime = Date.now();
+      timer = setInterval(function () {
+        let elapsedTime = Date.now() - startTime;
+        let seconds = Math.floor(elapsedTime / 1000);
+        let milliseconds = elapsedTime % 1000;
+        document.getElementById('timer').innerText = `${seconds}S.${milliseconds}ms`;
+      }, 1);
+    });
+
+    document.getElementById('stop').addEventListener('click', function () {
+      clearInterval(timer);
+    });
+    async function quickSort(array, left, right) {
+    drawAll(nums)
+    if (Object.prototype.toString.call(array).slice(8, -1) === 'Array' && typeof left === 'number' && typeof right === 'number') {
+        if (left < right) {
+            var x = array[right], i = left - 1, temp;
+            for (var j = left; j <= right; j++) {
+                if (array[j] <= x) {
+                    i++;
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+            await drawAll(nums)
+            await quickSort(array, left, i - 1);
+            await quickSort(array, i + 1, right);
+            await drawAll(nums)
+        }
+        return array;
+    } else {
+        return 'array is not an Array or left or right is not a number!';
+    }
+}
+
+    document.getElementById('btn').onclick = function () {
+      quickSort(nums, 0, nums.length - 1)
+    }
+  </script>
+</body>
+
+</html>

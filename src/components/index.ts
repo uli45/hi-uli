@@ -10,6 +10,7 @@ import ParticleClock from './ParticleClock/ParticleClock.vue'
 import JustWatched from './JustWatched/JustWatched.vue'
 import anyLineInBezier from './anyLineInBezier/anyLineInBezier.vue'
 import cssClock from './cssClock/cssClock.vue'
+import algorithmVisualizationComponent from './algorithmVisualizationComponent/algorithmVisualizationComponent.vue'
 const components = [
   {
     title: 'cssClock',
@@ -61,6 +62,11 @@ const components = [
     title: 'transitionLine',
     componentName: transitionLine,
     desc: '一些简单的css效果'
+  },
+  {
+    title: 'algorithmVisualizationComponent',
+    componentName: algorithmVisualizationComponent,
+    desc: '几个常见的排序算法可视化'
   }
 ]
 export default {
