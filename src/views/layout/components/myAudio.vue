@@ -18,7 +18,7 @@ const baseUrl = 'https://autumnfish.cn'
 const recommendMusic = ref<musicList[]>([])
 const src = ref('')
 const audioRef = ref<HTMLAudioElement>()
-const songName = ref('悬溺')
+const songName = ref('情非得已 (童声版)')
 const songStartMin = ref('00')
 const songStartSec = ref('00')
 const songEndTime = ref('03:17')
@@ -74,15 +74,16 @@ const nextSong = useDebounceFn(async () => {
     limit.value += 2
     await fetchData(baseUrl + `/personalized/newsong?limit=${limit.value}`)
   }
-  index.value += 1
   const songObj = recommendMusic.value![index.value]
+  index.value += 1
   songName.value = songObj.name
 
   fetchDataUrl(baseUrl + `/song/url?id=${songObj.id}`)
 }, 500)
 onMounted(async () => {
   await fetchData(baseUrl + `/personalized/newsong?limit=${limit.value}`)
-  await fetchDataUrl(baseUrl + `/song/url?id=${recommendMusic.value![0].id}`)
+  // await fetchDataUrl(baseUrl + `/song/url?id=${recommendMusic.value![0].id}`)
+  await fetchDataUrl(baseUrl + `/song/url?id=${33894312}`)
   changeTime()
 })
 const changeTime = () => {
