@@ -11,6 +11,7 @@ import JustWatched from './JustWatched/JustWatched.vue'
 import anyLineInBezier from './anyLineInBezier/anyLineInBezier.vue'
 import cssClock from './cssClock/cssClock.vue'
 import algorithmVisualizationComponent from './algorithmVisualizationComponent/algorithmVisualizationComponent.vue'
+import myEcharts from './myEcharts/myEcharts.vue'
 const components = [
   {
     title: 'cssClock',
@@ -67,6 +68,11 @@ const components = [
     title: 'algorithmVisualizationComponent',
     componentName: algorithmVisualizationComponent,
     desc: '几个常见的排序算法可视化'
+  },
+  {
+    title: 'myEcharts',
+    componentName: myEcharts,
+    desc: '一些简单的echarts实现'
   }
 ]
 export default {
