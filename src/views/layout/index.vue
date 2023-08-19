@@ -3,6 +3,7 @@ import { ref, shallowRef, watch } from 'vue'
 import { compStore } from '@/stores'
 import { DICT } from '@/data-dict'
 import { ElNotification } from 'element-plus'
+import myAudio from './components/myAudio.vue'
 // 图标大小
 const iconSize = ref(14)
 //图标颜色
@@ -74,6 +75,9 @@ watch(
             <p>微信扫一扫 进群一起探讨交流</p>
             <img src="@/assets/images/wechat.png" alt="" />
           </div>
+        </div>
+        <div class="music">
+          <my-audio></my-audio>
         </div>
         <div class="right-header">
           <div
@@ -219,7 +223,6 @@ watch(
     .right-header {
       text-align: right;
       font-size: 14px;
-
       .item {
         cursor: pointer;
         display: inline-block;

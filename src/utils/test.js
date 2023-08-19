@@ -15,7 +15,7 @@ function isBelowViewport(el) {
   return rect.top > window.innerHeight
 }
 export default {
-  mounted(el, binding) {
+  mounted(el) {
     if (isBelowViewport(el)) {
       return
     }
