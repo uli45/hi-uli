@@ -45,14 +45,18 @@ if (import.meta.env.PROD) {
   document.addEventListener('contextmenu', (e) => {
     if (app.config.globalProperties.$DisableRightClick) {
       e.preventDefault()
-      window.alert('本站已禁止右键')
+      window.alert('本站已禁止右键!')
+      app.config.globalProperties.$message.error('本站已禁止右键!')
     }
   })
   document.addEventListener('keydown', (e) => {
     if (app.config.globalProperties.$DisableF12 && e.key === 'F12') {
       e.preventDefault()
+      window.alert('本站已禁止右键!')
+      app.config.globalProperties.$message.error('本站已禁止F12!')
     }
   })
+
   if (app.config.globalProperties.$DisableDevTools) {
     const element = document.createElement('script')
     element.textContent = `

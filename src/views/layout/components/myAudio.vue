@@ -209,7 +209,7 @@ const onPlay = () => {
         </div>
       </div>
 
-      <audio class="audio" ref="audioRef" @play="onPlay" :src="src" :autoplay="true" loop></audio>
+      <audio class="audio" ref="audioRef" @play="onPlay" :src="src" loop></audio>
     </div>
   </div>
 </template>
