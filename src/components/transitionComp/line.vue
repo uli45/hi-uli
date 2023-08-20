@@ -6,11 +6,17 @@ const props = defineProps({
   md: {
     type: String,
     required: true
+  },
+  show: {
+    type: Boolean,
+    default: true
   }
 })
 
 const change = () => {
-  if (!props.md) return
+  if (!props.md || !props.show) return
+  console.log(props)
+
   showDrawer.value = true
 }
 const showDrawer = ref(false)
@@ -18,7 +24,7 @@ const showDrawer = ref(false)
 
 <template>
   <div @click="change" class="line pointer">
-    {{ props.md ? '查看代码' : '鼠标悬浮后底部出现线条并向两边延展' }}
+    {{ props.md && props.show ? '查看代码' : '鼠标悬浮后底部出现线条并向两边延展' }}
   </div>
   <myDrawer v-model="showDrawer" :text="props.md"></myDrawer>
 </template>

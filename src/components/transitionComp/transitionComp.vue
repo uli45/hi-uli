@@ -24,7 +24,7 @@ import md from './index.md?raw'
         <breathingLight></breathingLight>
       </div>
       <div class="item">
-        <Line></Line>
+        <Line :md="md" :show="false"></Line>
       </div>
       <div class="item">
         <transitionBG></transitionBG>
