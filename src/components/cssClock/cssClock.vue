@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import { reactive } from 'vue'
 import md from './index.md?raw'
 import textLine from '../transitionComp/line.vue'
@@ -7,9 +7,6 @@ const time = new Date()
 const hour = -3600 * (time.getHours() % 12)
 const mins = -60 * time.getMinutes()
 const seconds = -1 * time.getSeconds()
-
-
-
 </script>
 
 <template>
@@ -19,20 +16,23 @@ const seconds = -1 * time.getSeconds()
       <textLine :md="md"></textLine>
     </div>
     <div class="clock">
-      <div class="clock-face" id="clock-face"
-        :style="{ '--minute': mins + 's', '--hour': hour + mins + 's', '--seconds': seconds + 's' }">
-        <time style="--index:9" datetime="12:00">12</time>
-        <time style="--index:10" datetime="1:00">1</time>
-        <time style="--index:11" datetime="2:00">2</time>
-        <time style="--index:0" datetime="3:00">3</time>
-        <time style="--index:1" datetime="4:00">4</time>
-        <time style="--index:2" datetime="5:00">5</time>
-        <time style="--index:3" datetime="6:00">6</time>
-        <time style="--index:4" datetime="7:00">7</time>
-        <time style="--index:5" datetime="8:00">8</time>
-        <time style="--index:6" datetime="9:00">9</time>
-        <time style="--index:7" datetime="10:00">10</time>
-        <time style="--index:8" datetime="11:00">11</time>
+      <div
+        class="clock-face"
+        id="clock-face"
+        :style="{ '--minute': mins + 's', '--hour': hour + mins + 's', '--seconds': seconds + 's' }"
+      >
+        <time style="--index: 9" datetime="12:00">12</time>
+        <time style="--index: 10" datetime="1:00">1</time>
+        <time style="--index: 11" datetime="2:00">2</time>
+        <time style="--index: 0" datetime="3:00">3</time>
+        <time style="--index: 1" datetime="4:00">4</time>
+        <time style="--index: 2" datetime="5:00">5</time>
+        <time style="--index: 3" datetime="6:00">6</time>
+        <time style="--index: 4" datetime="7:00">7</time>
+        <time style="--index: 5" datetime="8:00">8</time>
+        <time style="--index: 6" datetime="9:00">9</time>
+        <time style="--index: 7" datetime="10:00">10</time>
+        <time style="--index: 8" datetime="11:00">11</time>
         <span class="arm seconds"></span>
         <span class="arm minutes"></span>
         <span class="arm hours"></span>
@@ -41,7 +41,7 @@ const seconds = -1 * time.getSeconds()
   </div>
 </template>
 
-<style scoped lang='less'>
+<style scoped lang="less">
 .cssClock {
   background: rgba(205, 205, 205, 0.2);
   .title {
@@ -63,14 +63,16 @@ const seconds = -1 * time.getSeconds()
   --radius: calc((var(--face-width) - var(--time-size)) / 2);
   --time-size: 12cqi;
 
-  background: linear-gradient(90deg,
-      #efdfef 1%,
-      #ead2ea 10.2%,
-      #e4d5ee 19.6%,
-      #d1def3 36.8%,
-      #b5dee5 62.2%,
-      #cfebf3 88.9%,
-      #c8eaf3 99%);
+  background: linear-gradient(
+    90deg,
+    #efdfef 1%,
+    #ead2ea 10.2%,
+    #e4d5ee 19.6%,
+    #d1def3 36.8%,
+    #b5dee5 62.2%,
+    #cfebf3 88.9%,
+    #c8eaf3 99%
+  );
   block-size: var(--clock-width);
   border-radius: 1rem;
   container-type: inline-size;
@@ -103,7 +105,6 @@ const seconds = -1 * time.getSeconds()
   top: var(--y);
   width: var(--time-size);
 }
-
 
 .arm {
   background-color: var(--_abg);
@@ -148,7 +149,7 @@ const seconds = -1 * time.getSeconds()
   background-color: #fff;
   border: 1cqi solid #333;
   border-radius: 50%;
-  content: "";
+  content: '';
   display: block;
   height: 4cqi;
   position: absolute;
@@ -157,11 +158,9 @@ const seconds = -1 * time.getSeconds()
   width: 4cqi;
 }
 
-
 @keyframes turn {
   to {
     transform: rotate(1turn);
   }
 }
 </style>
-

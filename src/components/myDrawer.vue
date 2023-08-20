@@ -1,12 +1,15 @@
 <script setup lang="ts">
-defineProps({
+import { ref } from 'vue'
+import MdEdtior from './MdEdtior.vue'
+const props = defineProps({
   modelValue: {
     type: Boolean,
     default: false,
     required: true
   },
   text: {
-    required: true
+    required: true,
+    type: String
   }
 })
 
@@ -28,9 +31,15 @@ const handleClose = () => {
       size="60%"
       @close="handleClose"
     >
-      <div class="markdown">
-        <v-md-preview class="preview" :text="text" ref="preview"></v-md-preview>
-      </div>
+      <!-- <div class="markdown">
+        <v-md-preview
+          class="preview"
+          :text="props.text"
+          ref="preview"
+          @copy-code-success="handleCopyCodeSuccess"
+        ></v-md-preview>
+      </div> -->
+      <MdEdtior :modelValue="props.text" />
     </el-drawer>
   </div>
 </template>

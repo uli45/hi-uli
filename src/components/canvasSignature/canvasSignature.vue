@@ -1,5 +1,3 @@
-# 几个简单算法可视化组件
-```vue
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import md from './index.md?raw'
@@ -43,10 +41,9 @@ const draw = (startX: number, startY: number, endX: number, endY: number) => {
 const canvasRefListenerDown = () => {
   canvasRef.value!.addEventListener(
     'mousedown',
-    ({ x, y, pageX, pageY }) => {
-      console.log(pageX, pageY)
+    ({ x, y }) => {
       isDown.value = true
-      console.log(x, y) //x y 起点
+      //x y 起点
       let X = x - canvasRef.value!.getBoundingClientRect().left
       let Y = y - canvasRef.value!.getBoundingClientRect().top
       points.value.push({ x: X, y: Y })
@@ -79,7 +76,6 @@ const canvasRefListenerUp = () => {
       ctx.value?.closePath()
       allPoints.value.push(points.value)
       points.value = []
-      console.log(allPoints.value, points.value)
     },
     false
   )
@@ -163,6 +159,3 @@ const resetCanvas = () => {
   }
 }
 </style>
-
-
-```

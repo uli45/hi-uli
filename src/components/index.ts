@@ -12,6 +12,7 @@ import anyLineInBezier from './anyLineInBezier/anyLineInBezier.vue'
 import cssClock from './cssClock/cssClock.vue'
 import algorithmVisualizationComponent from './algorithmVisualizationComponent/algorithmVisualizationComponent.vue'
 import myEcharts from './myEcharts/myEcharts.vue'
+import canvasSignature from './canvasSignature/canvasSignature.vue'
 const components = [
   {
     title: 'cssClock',
@@ -73,6 +74,11 @@ const components = [
     title: 'myEcharts',
     componentName: myEcharts,
     desc: '一些简单的echarts实现'
+  },
+  {
+    title: 'canvasSignature',
+    componentName: canvasSignature,
+    desc: '一个简单的canvas实现的签名'
   }
 ]
 export default {

@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import type { DirectiveBinding } from 'vue'
+import plugins from '@/plugins'
 import App from './App.vue'
 import pinia from './stores'
 import router from './router'
@@ -19,18 +19,6 @@ import '@/assets/styles/common.less'
 
 //自定义全局指令
 import directive from '@/utils/index'
-// markdown
-import VMdPreview from '@kangc/v-md-editor/lib/preview'
-import '@kangc/v-md-editor/lib/style/preview.css'
-import githubTheme from '@kangc/v-md-editor/lib/theme/github.js'
-import '@kangc/v-md-editor/lib/theme/style/github.css'
-
-// highlightjs
-import hljs from 'highlight.js'
-
-VMdPreview.use(githubTheme, {
-  Hljs: hljs
-})
 
 const app = createApp(App)
 
@@ -49,7 +37,7 @@ app.use(pinia)
 app.use(baseComponents)
 app.use(router)
 app.use(ElementPlus, { size: 'small' })
-app.use(VMdPreview)
+app.use(plugins)
 app.mount('#app')
 
 if (import.meta.env.PROD) {

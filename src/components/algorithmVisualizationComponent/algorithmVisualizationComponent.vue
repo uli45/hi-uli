@@ -88,8 +88,6 @@ const seconds = ref(0)
 const milliseconds = ref(0)
 let timer: any = ref()
 const updateTimer = (bool: boolean, startTime: any, Name: string) => {
-  console.log(bool)
-
   if (!bool) {
     clearInterval(timer.value)
     return

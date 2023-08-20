@@ -1,15 +1,19 @@
-# 几个简单算法可视化组件
+## 一个简单的canvas 手写签名 
+###  只是适配了pc端，移动端需要自己适配 适配也简单，就是把mouse事件换成touch事件
+### 代码如下
 ```vue
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import md from './index.md?raw'
-import textLine from '../transitionComp/line.vue'
+// import { useMousePressed, useMouse } from '@vueuse/core'
 
 const canvasRef = ref<HTMLCanvasElement>()
+// const canvas = canvasRef.value
 const ctx = ref<CanvasRenderingContext2D>()
-
+// const { pressed } = useMousePressed({ target: canvasRef.value, touch: false })
+// const { x, y } = useMouse({ target: canvasRef.value, touch: false })
 const isDown = ref(false)
-
+// const lastY = ref(0)
+// const lastX = ref(0)
 // 这次要用数组来记录
 const points = ref<{ x: number; y: number }[]>([]) // 这是一个笔画的点
 const allPoints = ref<
@@ -124,10 +128,6 @@ const resetCanvas = () => {
 
 <template>
   <div class="my-demo canvas-sign">
-    <div class="title">
-      <span>一个简单的canvas手写签名</span>
-      <textLine :md="md"></textLine>
-    </div>
     <canvas
       ref="canvasRef"
       id="canvas"
@@ -136,6 +136,7 @@ const resetCanvas = () => {
       style="background: rgba(255, 255, 255, 0.6)"
     ></canvas>
     <el-button @click="saveCanvas">保存</el-button>
+
     <el-button @click="resetCanvas">重写</el-button>
     <el-button @click="backNext">上一步</el-button>
   </div>
@@ -145,24 +146,13 @@ const resetCanvas = () => {
 .canvas-sign {
   background-color: rgba(0, 0, 0, 0.2);
   color: #fff;
-  padding-top: 0px;
-  .title {
-    font-size: 18px;
-    font-weight: 500;
-    height: 30px;
-    display: flex;
-
-    span {
-      margin-right: 20px;
-    }
-  }
+  padding-top: 100px;
   #canvas {
-    margin: 60px auto 40px;
+    margin: 0 auto;
     display: block;
     // background-color: #000 !important;
   }
 }
 </style>
-
 
 ```
