@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useDebounceFn } from '@vueuse/core'
-// import { musicStore } from '@/stores'
-// import { storeToRefs } from 'pinia'
 type musicList = {
   id: number
   name: string
@@ -54,19 +52,24 @@ const fetchDataUrl = async (url: string) => {
     src.value = data.data[0].url
     songEndTime.value = turnTime(data.data[0].time)
     totalTime.value = +data.data[0].time / 1000
+    setTimeout(() => {
+      playMusic()
+    }, 100)
   } catch (error) {
     console.log(error)
   }
 }
 const playMusic = () => {
   audioRef.value!.play()
-
-  isPlay.value = true
+  if (!audioRef.value!.paused) {
+    isPlay.value = true
+  }
 }
 const pauseMusic = () => {
   audioRef.value!.pause()
-
+  // if (!audioRef.value!.paused) {
   isPlay.value = false
+  // }
 }
 const nextSong = useDebounceFn(async () => {
   // 创建一个点击保存的变量用于切换下一曲和查找id 再获取url 在播放

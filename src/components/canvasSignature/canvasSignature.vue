@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import md from './index.md?raw'
 import textLine from '../transitionComp/line.vue'
-
+import { ElMessage } from 'element-plus'
 const canvasRef = ref<HTMLCanvasElement>()
 const ctx = ref<CanvasRenderingContext2D>()
 
@@ -82,6 +82,11 @@ const canvasRefListenerUp = () => {
 }
 //保存canvas 为图片
 const saveCanvas = () => {
+  if (!allPoints.value.length)
+    return ElMessage({
+      message: '请先绘制签名',
+      type: 'error'
+    })
   const link = document.createElement('a')
   document.body.append(link)
   link.href = canvasRef.value!.toDataURL('image/png')
@@ -89,6 +94,10 @@ const saveCanvas = () => {
   link.click()
   //移除元素
   document.body.removeChild(link)
+  ElMessage({
+    message: '签名保存成功',
+    type: 'success'
+  })
 }
 // 清空画布
 const resetPath = () => {
@@ -127,13 +136,15 @@ const resetCanvas = () => {
     <canvas
       ref="canvasRef"
       id="canvas"
-      width="600"
-      height="600"
+      width="800"
+      height="400"
       style="background: rgba(255, 255, 255, 0.6)"
     ></canvas>
-    <el-button @click="saveCanvas">保存</el-button>
-    <el-button @click="resetCanvas">重写</el-button>
-    <el-button @click="backNext">上一步</el-button>
+    <div class="btn">
+      <el-button @click="saveCanvas">保存</el-button>
+      <el-button @click="resetCanvas">重写</el-button>
+      <el-button @click="backNext">上一步</el-button>
+    </div>
   </div>
 </template>
 
@@ -156,6 +167,11 @@ const resetCanvas = () => {
     margin: 60px auto 40px;
     display: block;
     // background-color: #000 !important;
+  }
+  .btn {
+    margin: 0 auto;
+    width: 50%;
+    // background-color: #fff;
   }
 }
 </style>
