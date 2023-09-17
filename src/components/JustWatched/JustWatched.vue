@@ -14,7 +14,7 @@ interface Data {
 type CallbackFn = (item?: any) => void
 
 //假如当前的id
-const id = ref(100)
+const id = ref(50)
 /**
  * 模拟获取当前视频之前有多少条视频
  * @param id 当前数据的id  模拟数据传递数字就行
@@ -32,7 +32,8 @@ const getVideos = (page: number, size: number) => {
   for (let i = 0; i < size; i++) {
     data.value.push({
       loaded: false,
-      id: Math.floor(Math.random() * (100000 - 1 + 1)) + 1,
+      // id: Math.floor(Math.random() * (100000 - 1 + 1)) + 1,
+      id: i + 1 + id.value,
       url: `https://picsum.photos/1920/1080?r=${id.value++}`
     })
   }
@@ -212,10 +213,13 @@ const load = () => {
         ref="target"
       >
         <img :src="item.url" alt="" />
-        {{ index }}
+
+        <div>
+          {{ index }}
+        </div>
       </div>
     </div>
-    <div class="indicator" v-if="showBtn" @click="toJustWatched">刚刚看过</div>
+    <div class="indicator" v-if="showBtn" @click="toJustWatched">刚刚看过{{ id }}</div>
   </div>
 </template>
 

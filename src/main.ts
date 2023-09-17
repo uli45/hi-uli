@@ -22,7 +22,6 @@ import directive from '@/utils/index'
 
 // 禁用调试包
 import DisableDevtool from 'disable-devtool'
-
 const options = {
   disableIframeParents: true,
   disableDevtoolAuto: true,
