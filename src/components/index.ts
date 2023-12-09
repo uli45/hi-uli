@@ -13,6 +13,7 @@ import cssClock from './cssClock/cssClock.vue'
 import algorithmVisualizationComponent from './algorithmVisualizationComponent/algorithmVisualizationComponent.vue'
 import myEcharts from './myEcharts/myEcharts.vue'
 import canvasSignature from './canvasSignature/canvasSignature.vue'
+import inputAutoFocusVue from './inputAutoFocus/inputAutoFocus.vue'
 const components = [
   {
     title: 'cssClock',
@@ -79,6 +80,11 @@ const components = [
     title: 'canvasSignature',
     componentName: canvasSignature,
     desc: '一个简单的canvas实现的签名'
+  },
+  {
+    title: 'inputAutoFocus',
+    componentName: inputAutoFocusVue,
+    desc: '安卓、ios input 自动聚焦'
   }
 ]
 export default {
