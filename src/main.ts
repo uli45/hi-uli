@@ -21,14 +21,14 @@ import '@/assets/styles/common.less'
 import directive from '@/utils/index'
 
 // 禁用调试包
-import DisableDevtool from 'disable-devtool'
-const options = {
-  disableIframeParents: true,
-  disableDevtoolAuto: true,
-  md5: 'dd55cec2ce59aca4e6647dcfbc90dc27'
-}
+// import DisableDevtool from 'disable-devtool'
+// const options = {
+//   disableIframeParents: true,
+//   disableDevtoolAuto: true,
+//   md5: 'dd55cec2ce59aca4e6647dcfbc90dc27'
+// }
 
-DisableDevtool(options)
+// DisableDevtool(options)
 
 const app = createApp(App)
 
